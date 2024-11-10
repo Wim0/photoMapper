@@ -34,6 +34,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="photoList"
+        options={{
+          title: "Photo List",
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? "list-sharp" : "list-outline"} color={color} size={24} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="about"
         options={{
           title: "About",
