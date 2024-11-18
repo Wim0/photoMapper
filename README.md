@@ -1,50 +1,57 @@
-# Welcome to your Expo app 👋
+# PhotoMapper 📸🗺️
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+PhotoMapper es una aplicación desarrollada con [Expo](https://expo.dev) que permite a los usuarios mapear y gestionar sus fotos. Este proyecto fue creado con [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+## Empezando 🚀
 
-1. Install dependencies
+Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### Instalando Dependencias
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Iniciando la Aplicación
 
-## Learn more
+En la salida, encontrarás opciones para abrir la aplicación en:
 
-To learn more about developing your project with Expo, look at the following resources:
+- Build de desarrollo
+- Simulador de iOS
+- Expo Go, un entorno limitado para probar el desarrollo de aplicaciones Expo
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Se recomienda utilizar el simulador de iOS para probar la aplicación.
 
-## Join the community
+```bash
+npx expo start
+i
+```
 
-Join our community of developers creating universal apps.
+### Estructura del Proyecto 📂
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- app/: Contiene los archivos principales de la aplicación.
+- index.tsx: Punto de entrada de la aplicación.
+- \_layout.tsx: Diseño principal de la aplicación.
+- assets/: Contiene imágenes y otros recursos estáticos.
+- scripts/: Scripts útiles para gestionar el proyecto.
+- reset-project.js: Script para reiniciar el proyecto a un estado en blanco.
+- package.json: Archivo de configuración de npm con dependencias y scripts del proyecto.
+- app.json: Configuración de Expo para la aplicación.
+
+### Capturas de Pantalla
+
+### Aprende Más 📚
+
+Para aprender más sobre el desarrollo del proyecto con Expo, consulta los siguientes recursos:
+
+- Documentación de Expo: Aprende los conceptos básicos o profundiza en temas avanzados con nuestras guías.
+- Tutorial de Expo: Sigue un tutorial paso a paso donde crearás un proyecto que se ejecuta en Android, iOS y la web.
+
+### Únete a la Comunidad 🌍
+
+Únete a nuestra comunidad de desarrolladores creando aplicaciones universales.
+
+- Expo en GitHub: Visita nuestra plataforma de código abierto y contribuye.
+- Comunidad de Discord: Chatea con usuarios de Expo y haz preguntas.
+
+¡Esperamos que disfrutes desarrollando con PhotoMapper!
