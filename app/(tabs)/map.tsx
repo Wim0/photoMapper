@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { View, Text, StyleSheet, Pressable, Modal, FlatList, Image } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
@@ -13,25 +13,27 @@ export default function MapScreen() {
   const [selectedPhotos, setSelectedPhotos] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
 
+  const loadLocationAndPhotos = useCallback(async () => {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== "granted") {
+      console.log("Permission to access location was denied");
+      return;
+    }
+    let location = await Location.getCurrentPositionAsync({});
+    setCurrentLocation(location);
+    setRegion({
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    });
+    const storedPhotos = JSON.parse(await AsyncStorage.getItem("photosPhotoMapper")) || [];
+    setPhotos(storedPhotos);
+  }, [setCurrentLocation, setRegion, setPhotos]);
+
   useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        console.log("Permission to access location was denied");
-        return;
-      }
-      let location = await Location.getCurrentPositionAsync({});
-      setCurrentLocation(location);
-      setRegion({
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      });
-      const storedPhotos = JSON.parse(await AsyncStorage.getItem("photosPhotoMapper")) || [];
-      setPhotos(storedPhotos);
-    })();
-  }, []);
+    loadLocationAndPhotos();
+  }, [loadLocationAndPhotos]);
 
   const groupPhotosByCoordinates = (photos: any) => {
     const groupedPhotos = {};
